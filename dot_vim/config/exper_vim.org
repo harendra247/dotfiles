@@ -1,0 +1,261 @@
+""harendra-> * delete a word/parameter/block
+""harendra-> action/motion/ - delete a line or delete a paragraph
+""harendra-> 
+""harendra-> 
+""harendra->         "dl"    delete character (alias: "x")           |dl|
+""harendra->         "diw"   delete inner word                       *diw*
+""harendra->         "daw"   delete a word                           *daw*
+""harendra->         "diW"   delete inner WORD (see |WORD|)          *diW*
+""harendra->         "daW"   delete a WORD (see |WORD|)              *daW*
+""harendra->         "dgn"   delete the next search pattern match    *dgn*
+""harendra->         "dd"    delete one line                         |dd|
+""harendra->         "dis"   delete inner sentence                   *dis*
+""harendra->         "das"   delete a sentence                       *das*
+""harendra->         "dib"   delete inner '(' ')' block              *dib*
+""harendra->         "dab"   delete a '(' ')' block                  *dab*
+""harendra->         "dip"   delete inner paragraph                  *dip*
+""harendra->         "dap"   delete a paragraph                      *dap*
+""harendra->         "diB"   delete inner '{' '}' block              *diB*
+""harendra->         "daB"   delete a '{' '}' block                  *daB*
+""harendra-> 
+""harendra-> above use c for change and y for copy, v for visually
+""harendra-> 
+""harendra-> Last point in the change list : g; (g, go back)
+""harendra-> test objects : w s p b B 
+""harendra-> "a word" - aw
+""harendra-> "inner block" - ib
+""harendra-> dj - delete two lines
+""harendra-> dvj  - deletes from the cursor position until the character below the cursor
+""harendra-> ddO - S can be used - delete currnt line and move to insert mode
+""harendra-> dbx - daw
+""harendra-> * copy paste
+""harendra-> 
+""harendra-> 35 copy buffers
+""harendra-> "+ is the X server (i.e system) copy/paste regsiter, copy to here to copy out of Vim
+""harendra-> :reg - view content of registers
+""harendra-> <Ctrl-r> "register" in insert mode puts the register
+""harendra-> "[1-9] - history / delete registers
+""harendra-> "0 - yank register
+""harendra-> "[a-z] - named register
+""harendra-> "[A-Z] - same as above but append
+""harendra-> 
+""harendra-> "/ current search pattern
+""harendra-> "- small delete
+""harendra-> "= expressoin register
+""harendra-> "_ the black hole register
+""harendra-> ": last : command
+""harendra-> ". last inserted text
+""harendra-> "% filename of the current buffer
+""harendra-> "# filename of the alternate file/ last file edited
+""harendra-> 
+""harendra-> all the above work in insert mode
+""harendra-> 
+""harendra-> * Macros
+""harendra-> 
+""harendra-> . repeats the last change
+""harendra-> qa records a macro in register a
+""harendra-> q to finish recording
+""harendra-> @a execute the macro in register
+""harendra-> 
+""harendra-> Macros are saves as text so can be edited
+""harendra-> 
+""harendra-> * Buffer/ Windows/Tabs
+""harendra-> 
+""harendra-> :ls - to list buffers
+""harendra-> :bn, :bp to newxt and prev buffers
+""harendra-> :b buffername
+""harendra-> 
+""harendra-> :sp or :vsp   window
+""harendra-> <ctrl - w >  - to move between windows
+""harendra-> <ctrl- w > c -  to close window
+""harendra-> < ctrl -w > n - opne new window
+""harendra-> 
+""harendra-> gt gT to go to tabs newxt nd prev
+""harendra-> :tabnew to create new tab
+""harendra-> :file can search file in the current directory recursively
+""harendra-> 
+""harendra-> * auto complete
+""harendra-> ^x^n for just this file
+""harendra-> ^x^f for filenames (works with path trick!)
+""harendra-> ^x^] for tags only
+""harendra-> ^n for anything specified by the 'complete' option
+""harendra-> ^n and ^p to go back and forth in the suggestion list
+""harendra-> * templates
+""harendra->   
+""harendra-> * snippets
+""harendra-> 
+""harendra-> * plugins and plugin managers
+""harendra-> 
+""harendra-> leader - user selected key which can be prepended by default is backslash \
+""harendra-> vundle is a plugin which manages plugins
+""harendra-> Plugin commmands can use <LEADER> keybind for uniqueness
+""harendra-> 
+""harendra-> 
+""harendra-> usefuld plugins
+""harendra-> scrooloose / NERDTree - Treestyle file listing sidebar
+""harendra-> scrooloose / syntastic - check syntax while typing
+""harendra-> tpope/vim-fugitive - Git interaction
+""harendra-> tpope/ vim-surround - change surrounding chars
+""harendra-> sirver /ultisnips - Better snippet system
+""harendra-> honza / vim-snippetss - useful standards snippets
+""harendra-> ctrlp - fuzzy file finder
+""harendra-> 
+""harendra-> * Navigation large size code base
+""harendra-> ctags/cscope
+""harendra-> 
+""harendra-> * compilation 
+""harendra-> :make <make target>
+""harendra-> :set makeprg
+""harendra-> :cn :cw :cp ]c [c
+""harendra-> :copen
+""harendra-> :shell 
+""harendra-> 
+""harendra-> * misceleneous
+""harendra-> 
+""harendra-> :g/<string>/d  - delete all lines having string
+""harendra-> :v/<string>/d  - delete all line which does not contain string
+""harendra-> ^v - to select a rectangle in visual mod
+""harendra-> ^G - to show file name
+""harendra-> * Search & Replace
+""harendra-> ""harendra -> :range s[ubstitute]/pattern/string/cgiI
+""harendra-> c
+""harendra-> Confirm each substitution
+""harendra-> g
+""harendra-> Replace all occurrences in the line (without g - only first).
+""harendra-> i
+""harendra-> Ignore case for the pattern.
+""harendra-> I
+""harendra-> Don't ignore case for the pattern.
+""harendra-> 
+""harendra-> * Grouping and Backreferences
+""harendra-> 
+""harendra-> &
+""harendra-> the whole matched pattern	
+""harendra-> \L
+""harendra-> the following characters are made lowercase
+""harendra-> \0
+""harendra-> the whole matched pattern	
+""harendra-> \U
+""harendra-> the following characters are made uppercase
+""harendra-> \1
+""harendra-> the matched pattern in the first pair of \(\)	
+""harendra-> \E
+""harendra-> end of \U and \L
+""harendra-> \2
+""harendra-> the matched pattern in the second pair of \(\)	
+""harendra-> \e
+""harendra-> end of \U and \L
+""harendra-> ...
+""harendra-> ...	
+""harendra-> \r
+""harendra-> split line in two at this point
+""harendra-> \9
+""harendra-> the matched pattern in the ninth pair of \(\)	
+""harendra-> \l
+""harendra-> next character made lowercase
+""harendra-> ~
+""harendra-> the previous substitute string	
+""harendra-> \u
+""harendra-> next character made uppercase
+""harendra-> 
+""harendra-> Global search and execution
+""harendra-> :range g[lobal][!]/pattern/cmd
+""harendra-> Execute the Ex command cmd (default ":p") on the lines within [range] where pattern matches. If pattern is preceded with a ! - only where match does not occur.
+""harendra-> example
+""harendra-> :g/^$/ d
+""harendra-> 
+""harendra-> - delete all empty lines in a file
+""harendra-> 
+""harendra-> :g/^$/,/./-j
+""harendra-> 
+""harendra-> - reduce multiple blank lines to a single blank
+""harendra-> 
+""harendra-> :10,20g/^/ mo 10
+""harendra-> 
+""harendra-> - reverse the order of the lines starting from the line 10 up to the line 20.
+""harendra-> 
+""harendra-> Here is a modified example from Walter Zintz vi tutorial:
+""harendra-> 
+""harendra-> :'a,'b g/^Error/ . w >> errors.txt
+""harendra-> 
+""harendra-> - in the text block marked by 'a and 'b find all the lines starting with Error and copy (append) them to "errors.txt" file. Note: . (current line address) in front of the w is very important, omitting it will cause :write to write the whole file to "errors.txt" for every Error line found.
+""harendra-> 
+""harendra-> You can give multiple commands after :global using "|" as a separator. If you want to use "|' in an argument, precede it with "\'. Another example from Zintz tutorial:
+""harendra-> 
+""harendra-> :g/^Error:/ copy $ | s /Error/copy of the error/
+""harendra-> 
+""harendra-> - will copy all Error line to the end of the file and then make a substitution in the copied line. Without giving the line address :s will operate on the current line, which is the newly copied line.
+""harendra-> 
+""harendra-> :g/^Error:/ s /Error/copy of the error/ | copy $
+""harendra-> 
+""harendra-> - here the order is reversed: first modify the string then copy to the end.
+""harendra-> 
+""harendra-> Quantifiers, Greedy and Non-Greedy
+""harendra-> 
+""harendra-> Using quantifiers you can set how many times certain part of you pattern should repeat by putting the following after your pattern:
+""harendra-> 
+""harendra-> Quantifier
+""harendra-> Description
+""harendra-> *
+""harendra-> matches 0 or more of the preceding characters, ranges or metacharacters .* matches everything including empty line
+""harendra-> \+
+""harendra-> matches 1 or more of the preceding characters...
+""harendra-> \=
+""harendra-> matches 0 or 1 more of the preceding characters...
+""harendra-> \{n,m}
+""harendra-> matches from n to m of the preceding characters...
+""harendra-> \{n}
+""harendra-> matches exactly n times of the preceding characters...
+""harendra-> \{,m}
+""harendra-> matches at most m (from 0 to m) of the preceding characters...
+""harendra-> \{n,}
+""harendra-> matches at least n of of the preceding characters...
+""harendra-> where n and m are positive integers (>0)
+""harendra-> Now it's much easier to define a pattern that matches a word of any length \u\w\+.
+""harendra-> 
+""harendra-> These quantifiers are greedy - that is your pattern will try to match as much text as possible. Sometimes it presents a problem. Let's consider a typical example - define a pattern to match delimited text, i.e. text enclosed in quotes, brackets, etc. Since we don't know what kind of text is inside the quotes we'll use
+""harendra-> 
+""harendra-> /".*"/
+""harendra-> 
+""harendra-> But this pattern will match everything between the first " and the last " in the following line:
+""harendra-> 
+""harendra-> this file is normally "$VIM/.gvimrc". You can check this with ":version".
+""harendra-> 
+""harendra-> This problem can be resolved by using non-greedy quantifiers:
+""harendra-> 
+""harendra-> Quantifier
+""harendra-> Description
+""harendra-> \{-}
+""harendra-> matches 0 or more of the preceding atom, as few as possible
+""harendra-> \{-n,m}
+""harendra-> matches 1 or more of the preceding characters...
+""harendra-> \{-n,}
+""harendra-> matches at lease or more of the preceding characters...
+""harendra-> \{-,m}
+""harendra-> matches 1 or more of the preceding characters...
+""harendra-> where n and m are positive integers (>0)
+
+
+""harendra-> 
+""harendra-> 
+""harendra->  
+""harendra-> * tmux window (Terminal multiplexer)
+""harendra-> run tmux
+""harendra-> ^b c : new window
+""harendra-> ^b p : go to prev window
+""harendra-> ^b n : go to next window
+""harendra-> ^b , : change window name
+""harendra-> ^b w : list window, gives scrollable selectible window
+""harendra-> 
+""harendra-> * tmux pane
+""harendra-> split each window vertically or horozontly
+""harendra-> 
+""harendra-> ^b % : split virtically
+""harendra-> ^b : :split-window
+""harendra-> 
+""harendra-> * tmux session
+""harendra-> tmux new-session -s session-name
+""harendra-> tmux list-sessions
+""harendra-> tmux attach -t session-name
+""harendra-> 
+""harendra-> 
