@@ -34,3 +34,8 @@ echo "Exported CSCOPE_DB to: '$CSCOPE_DB'"
 #cscope -d
 #ctags -R *.c
 ctags -L "$CSCOPE_DIR/cscope.files"
+
+# do it if needed
+#mkdir ~/.vim/plugins
+#cd ~/.vim/plugins
+#wget http://cscope.sourceforge.net/cscope_maps.vim
